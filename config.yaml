@@ -11,6 +11,8 @@ feature_spec:
   prob: 0.5
 
 n_iterations: 5
+
 tolerance: 0.05
+threshold: 0.95
 
 out_dir: "."
