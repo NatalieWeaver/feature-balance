@@ -9,5 +9,4 @@ config <- yaml::read_yaml("config.yaml")
 run_spec <- setup(config)
 
 run_simulation(run_spec)
-
-summarize_results(run_spec)
+run_analysis(run_spec)

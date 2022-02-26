@@ -1,8 +1,4 @@
-summarize_results <- function(config) {
-  
-  results <- readr::read_csv(
-    file.path(config$out_dir, "results.csv")
-  )
+summarize_results <- function(results, config) {
   
   summary <- results %>%
     dplyr::group_by(iter, feature) %>%
