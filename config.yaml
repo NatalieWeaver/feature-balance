@@ -1,0 +1,9 @@
+# Configuration for simulation run
+
+sample_size: 10
+n_vars: 8
+
+feature_spec:
+  dist: "binom"
+  size: 1
+  prob: 0.5
