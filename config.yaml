@@ -1,7 +1,9 @@
 # Configuration for simulation run
 
-sample_size: 10
+sample_size: 100
 n_vars: 8
+
+n_groups: 3
 
 feature_spec:
   dist: "binom"
