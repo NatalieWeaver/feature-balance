@@ -1,13 +1,15 @@
 # Configuration for simulation run
 
-n_iterations: 5
-
 sample_size: 10
-n_vars: 3
-
 n_groups: 2
+
+n_vars: 3
 
 feature_spec:
   dist: "binom"
   size: 1
   prob: 0.5
+
+n_iterations: 5
+
+out_dir: "."

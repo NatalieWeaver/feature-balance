@@ -12,7 +12,7 @@ calculate_statistics <- function(data, config) {
     dplyr::summarize(
       mean = mean(value)
     ) %>%
-    dplyr::arrange(feature)
+    dplyr::arrange(group, feature)
   
   data
 }
