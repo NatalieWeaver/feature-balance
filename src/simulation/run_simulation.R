@@ -1,12 +1,15 @@
 library(pacman)
-pacman::p_load("magrittr", "dplyr", "readr")
+pacman::p_load("magrittr", "dplyr", "readr", "progress")
 
 run_simulation <- function(config) {
   
   out_path <- file.path(config$out_dir, "results.csv")
   
+  pb <- progress::progress_bar$new(total = config$n_iterations)
+  
   for (i in seq(config$n_iterations)) {
     run_one_iteration(config, i, out_path, (i > 1))
+    pb$tick()
   }
 
 }
