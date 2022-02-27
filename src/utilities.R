@@ -62,6 +62,6 @@ parse_config <- function(config) {
 
 make_directories <- function(config) {
   if (!dir.exists(config$out_dir)) {
-    dir.create(config$out_dir)
+    dir.create(config$out_dir, recursive = TRUE)
   }
 }

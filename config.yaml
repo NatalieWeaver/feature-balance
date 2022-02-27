@@ -15,4 +15,4 @@ feature_spec:
 tolerance: 0.05
 threshold: 0.95
 
-out_dir: "."
+out_dir: "results/test1"
