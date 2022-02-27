@@ -1,7 +1,7 @@
 library(pacman)
 pacman::p_load("magrittr", "dplyr", "readr")
 
-summarize_results <- function(results, config, write = TRUE) {
+summarize_results <- function(results, config, write = TRUE, append = FALSE) {
   
   summary <- results %>%
     dplyr::group_by(feature, .add = TRUE) %>%
@@ -15,7 +15,11 @@ summarize_results <- function(results, config, write = TRUE) {
     )
   
   if (write) {
-    readr::write_csv(summary, file.path(config$out_dir, "summary.csv"))
+    readr::write_csv(
+      summary,
+      file.path(config$out_dir, "summary.csv"),
+      append = append
+    )
   }
   
   summary
