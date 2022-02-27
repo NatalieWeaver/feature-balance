@@ -5,6 +5,10 @@ options(readr.show_progress = FALSE)
 
 run_simulation <- function(config) {
   
+  if (length(config$sample_size > 1)) {
+    stop("For single runs, specify only one sample size")
+  }
+  
   pb <- progress::progress_bar$new(total = config$n_iterations)
   
   for (i in seq(config$n_iterations)) {
