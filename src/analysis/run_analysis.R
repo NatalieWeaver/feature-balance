@@ -1,5 +1,5 @@
 library(pacman)
-pacman::p_load("readr", "magrittr")
+pacman::p_load("readr", "magrittr", "dplyr")
 
 run_analysis <- function(config) {
   
@@ -8,6 +8,7 @@ run_analysis <- function(config) {
   )
   
   results %>%
+    dplyr::group_by(iter) %>%
     summarize_results(config) %>%
     describe_iter_balance(config) %>%
     describe_overall_balance(config)

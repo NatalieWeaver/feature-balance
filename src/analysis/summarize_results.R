@@ -1,10 +1,10 @@
 library(pacman)
 pacman::p_load("magrittr", "dplyr", "readr")
 
-summarize_results <- function(results, config) {
+summarize_results <- function(results, config, write = TRUE) {
   
   summary <- results %>%
-    dplyr::group_by(iter, feature) %>%
+    dplyr::group_by(feature) %>%
     dplyr::summarize(
       min_mean = min(mean),
       max_mean = max(mean)
@@ -14,7 +14,9 @@ summarize_results <- function(results, config) {
       balanced = as.numeric(diff <= config$tolerance)
     )
   
-  readr::write_csv(summary, file.path(config$out_dir, "summary.csv"))
+  if (write) {
+    readr::write_csv(summary, file.path(config$out_dir, "summary.csv"))
+  }
   
   summary
 }
