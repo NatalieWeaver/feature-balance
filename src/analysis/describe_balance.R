@@ -1,7 +1,8 @@
 library(pacman)
 pacman::p_load("magrittr", "dplyr", "readr")
 
-describe_iter_balance <- function(summary, config, write = TRUE) {
+describe_iter_balance <- function(summary, config,
+                                  write = TRUE, append = FALSE) {
   
   iter_balance <- summary %>%
     dplyr::summarize(
@@ -14,14 +15,16 @@ describe_iter_balance <- function(summary, config, write = TRUE) {
   if (write) {
     readr::write_csv(
       iter_balance,
-      file.path(config$out_dir, "balance_by_iter.csv")
+      file.path(config$out_dir, "balance_by_iter.csv"),
+      append = append
     )
   }
   
   iter_balance
 }
 
-describe_overall_balance <- function(iter_balance, config, append = FALSE) {
+describe_overall_balance <- function(iter_balance, config,
+                                     write = TRUE, append = FALSE) {
   
   overall_balance <- iter_balance %>%
     dplyr::summarize(
@@ -30,11 +33,13 @@ describe_overall_balance <- function(iter_balance, config, append = FALSE) {
       pct_iters_meeting_threshold = mean(meets_threshold)
     )
   
-  readr::write_csv(
-    overall_balance,
-    file.path(config$out_dir, "overall_balance.csv"),
-    append = append
-  )
+  if (write) {
+    readr::write_csv(
+      overall_balance,
+      file.path(config$out_dir, "overall_balance.csv"),
+      append = append
+    )
+  }
   
   overall_balance
 }
