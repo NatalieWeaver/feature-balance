@@ -1,18 +1,20 @@
 # Configuration for simulation run
 
-n_iterations: 5
+n_iterations: # (large) integer
 
-sample_size: 10
-n_groups: 2
+sample_size: # integer
+n_groups: # (small) integer
 
-n_vars: 3
+n_vars: # integer
 
 feature_spec:
   dist: "binom"
   size: 1
   prob: 0.5
 
-tolerance: 0.05
-threshold: 0.95
+tolerance: # (small) number between 0 and 1
+threshold: # (large) number between 0 and 1
 
-out_dir: "results/test1"
+random_seed: # integer
+
+out_dir: # string
