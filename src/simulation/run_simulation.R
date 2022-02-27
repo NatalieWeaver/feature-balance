@@ -1,6 +1,7 @@
 library(pacman)
 pacman::p_load("magrittr", "dplyr", "readr", "progress")
 options(dplyr.summarise.inform = FALSE)
+options(readr.show_progress = FALSE)
 
 run_simulation <- function(config) {
   
