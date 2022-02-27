@@ -24,7 +24,8 @@ setup <- function(config) {
 source_required_scripts <- function() {
   files <- list.files(path = c(file.path("src", "simulation"),
                                file.path("src", "analysis"),
-                               file.path("src", "runners")),
+                               file.path("src", "runners"),
+                               file.path("src", "plots")),
                       full.names = TRUE)
   sapply(files, source)
 }
@@ -66,5 +67,8 @@ parse_config <- function(config) {
 make_directories <- function(config) {
   if (!dir.exists(config$out_dir)) {
     dir.create(config$out_dir, recursive = TRUE)
+  }
+  if (!dir.exists(file.path(config$out_dir, "figures"))) {
+    dir.create(file.path(config$out_dir, "figures"), recursive = TRUE)
   }
 }
