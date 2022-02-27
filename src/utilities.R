@@ -23,7 +23,8 @@ setup <- function(config) {
 
 source_required_scripts <- function() {
   files <- list.files(path = c(file.path("src", "simulation"),
-                               file.path("src", "analysis")),
+                               file.path("src", "analysis"),
+                               file.path("src", "runners")),
                       full.names = TRUE)
   sapply(files, source)
 }
