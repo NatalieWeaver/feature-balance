@@ -44,6 +44,8 @@ parse_config <- function(config) {
     run_spec$random_seed <- sample(10000:99999, 1)
   }
   
+  run_spec$datetime <- Sys.time()
+  
   pkgs <- sessioninfo::package_info("loaded", include_base = TRUE)
   run_spec$session_info <- list(
     r_version = list(
