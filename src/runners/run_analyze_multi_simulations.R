@@ -21,7 +21,8 @@ run_analyze_multi_simulations <- function(config) {
     }
     
     iter_balance <- readr::read_csv(
-      file.path(config$out_dir, "balance_by_iter.csv")
+      file.path(config$out_dir, "balance_by_iter.csv"),
+      show_col_types = FALSE
     )
     
     iter_balance %>%
