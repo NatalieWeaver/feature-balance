@@ -1,3 +1,6 @@
+library(pacman)
+pacman::p_load("magrittr", "dplyr", "readr")
+
 summarize_results <- function(results, config) {
   
   summary <- results %>%

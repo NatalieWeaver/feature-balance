@@ -1,3 +1,6 @@
+library(pacman)
+pacman::p_load("readr", "magrittr")
+
 run_analysis <- function(config) {
   
   results <- readr::read_csv(

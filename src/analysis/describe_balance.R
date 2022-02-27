@@ -1,3 +1,6 @@
+library(pacman)
+pacman::p_load("magrittr", "dplyr", "readr")
+
 describe_iter_balance <- function(summary, config) {
   
   iter_balance <- summary %>%

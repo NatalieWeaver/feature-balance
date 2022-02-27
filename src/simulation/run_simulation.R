@@ -1,3 +1,6 @@
+library(pacman)
+pacman::p_load("magrittr", "dplyr", "readr")
+
 run_simulation <- function(config) {
   
   out_path <- file.path(config$out_dir, "results.csv")

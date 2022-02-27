@@ -1,3 +1,6 @@
+library(pacman)
+pacman::p_load("tibble")
+
 make_feature_matrix <- function(config, to_tibble = TRUE) {
   
   n <- config$sample_size

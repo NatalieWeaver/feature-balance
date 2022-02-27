@@ -1,3 +1,6 @@
+library(pacman)
+pacman::p_load("dplyr", "tidyr")
+
 calculate_statistics <- function(data, config) {
   
   data <- data %>%
