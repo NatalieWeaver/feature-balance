@@ -4,7 +4,7 @@ pacman::p_load("magrittr", "dplyr", "readr")
 summarize_results <- function(results, config, write = TRUE) {
   
   summary <- results %>%
-    dplyr::group_by(feature) %>%
+    dplyr::group_by(feature, .add = TRUE) %>%
     dplyr::summarize(
       min_mean = min(mean),
       max_mean = max(mean)
