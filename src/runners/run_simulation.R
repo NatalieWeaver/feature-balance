@@ -24,7 +24,7 @@ run_one_iteration <- function(config, i, write = TRUE, append = FALSE) {
   if (write) {
     readr::write_csv(
       out,
-      file.path(config$out_dir, "results.csv"),
+      file.path(config$dirs$data, "results.csv"),
       append = append)
   }
   

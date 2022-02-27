@@ -4,7 +4,7 @@ pacman::p_load("readr", "magrittr", "dplyr")
 run_analysis <- function(config) {
   
   results <- readr::read_csv(
-    file.path(config$out_dir, "results.csv")
+    file.path(config$dirs$data, "results.csv")
   )
   
   results %>%

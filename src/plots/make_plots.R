@@ -86,13 +86,13 @@ generate_all_plots <- function(data, config, save) {
   p4 <- meets_thresh_log_plot(data, config)
   
   if (save) {
-    ggsave(file.path(config$out_dir, "figures", "mean_rate_linear_plot.png"),
+    ggsave(file.path(config$dirs$figures, "mean_rate_linear_plot.png"),
            plot = p1, width = 8, height = 8)
-    ggsave(file.path(config$out_dir, "figures", "mean_rate_log_plot.png"),
+    ggsave(file.path(config$dirs$figures, "mean_rate_log_plot.png"),
            plot = p2, width = 8, height = 8)
-    ggsave(file.path(config$out_dir, "figures", "meets_thresh_linear_plot.png"),
+    ggsave(file.path(config$dirs$figures, "meets_thresh_linear_plot.png"),
            plot = p3, width = 8, height = 8)
-    ggsave(file.path(config$out_dir, "figures", "meets_thresh_log_plot.png"),
+    ggsave(file.path(config$dirs$figures, "meets_thresh_log_plot.png"),
            plot = p4, width = 8, height = 8)
   }
   
@@ -101,7 +101,7 @@ generate_all_plots <- function(data, config, save) {
 }
 
 run_plot_generator <- function(config) {
-  data <- readr::read_csv(file.path(config$out_dir, "overall_balance.csv"))
+  data <- readr::read_csv(file.path(config$dirs$data, "overall_balance.csv"))
   p <- generate_all_plots(data, config, save = TRUE)
   invisible(p)
 }

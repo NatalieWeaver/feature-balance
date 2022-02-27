@@ -14,7 +14,7 @@ setup <- function(config) {
   run_spec <- parse_config(config)
   set.seed(run_spec$random_seed)
   
-  make_directories(run_spec)
+  run_spec$dirs <- make_directories(run_spec)
   
   yaml::write_yaml(run_spec, file.path(config$out_dir, "run_spec.yaml"))
   
@@ -65,10 +65,13 @@ parse_config <- function(config) {
 }
 
 make_directories <- function(config) {
-  if (!dir.exists(config$out_dir)) {
-    dir.create(config$out_dir, recursive = TRUE)
+  dirs <- list()
+  for (d in c("data", "figures")) {
+    dir <- file.path(config$out_dir, d)
+    if (!dir.exists(dir)) {
+      dir.create(dir, recursive = TRUE)
+    }
+    dirs[[d]] <- dir
   }
-  if (!dir.exists(file.path(config$out_dir, "figures"))) {
-    dir.create(file.path(config$out_dir, "figures"), recursive = TRUE)
-  }
+  dirs
 }

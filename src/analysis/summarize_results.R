@@ -17,7 +17,7 @@ summarize_results <- function(results, config, write = TRUE, append = FALSE) {
   if (write) {
     readr::write_csv(
       summary,
-      file.path(config$out_dir, "summary.csv"),
+      file.path(config$dirs$data, "summary.csv"),
       append = append
     )
   }

@@ -15,7 +15,7 @@ describe_iter_balance <- function(summary, config,
   if (write) {
     readr::write_csv(
       iter_balance,
-      file.path(config$out_dir, "balance_by_iter.csv"),
+      file.path(config$dirs$data, "balance_by_iter.csv"),
       append = append
     )
   }
@@ -36,7 +36,7 @@ describe_overall_balance <- function(iter_balance, config,
   if (write) {
     readr::write_csv(
       overall_balance,
-      file.path(config$out_dir, "overall_balance.csv"),
+      file.path(config$dirs$data, "overall_balance.csv"),
       append = append
     )
   }
